@@ -16,6 +16,59 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+const math = require('mathjs')
+
+class Calculator {
+    constructor() {
+        this.result = 0;
+    }
+
+    add(n) {
+        this.result += n;
+    }
+
+    subtract(n) {
+        this.result -= n;
+    }
+
+    multiply(n) {
+        this.result *= n;
+    }
+
+    divide(n) {
+        this.result /= n;
+    }
+
+    clear() {
+        this.result = 0;
+    }
+
+    getResult() {
+        return this.result;
+    }
+
+    calculate(str) {
+        /*let s1 = str.match(/[^\s\d\.]/g);
+        console.log(s1);
+
+        let digits = str.match(/-?\d+(\.\d+)?/g);
+
+        console.log(digits);*/
+
+        this.result = math.evaluate(str);
+
+        //console.log(this.result);
+        if(this.result == Infinity) {
+            throw "divide by 0";
+        }
+
+        return this.result;
+    }
+}
 
 module.exports = Calculator;
+
+
+let calc = new Calculator();
+
+calc.calculate('10 / 0');
