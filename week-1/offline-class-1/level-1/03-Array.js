@@ -53,9 +53,10 @@ concatExample([1, 2, 3], [4, 5, 6]);
 // forEach()
 function forEachExample(arr) {
   console.log("Original Array:", arr);
+  console.log("i|val");
 
-  arr.forEach(function(item, index) {
-    console.log(item, index);
+  arr.forEach(function(element, index) {
+    console.log(index, element);
   });
 }
 forEachExample([1, 2, 3]);
